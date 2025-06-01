@@ -9,7 +9,7 @@ function App() {
   const [secondCurrency, setSecondCurrency] = useState<string>("usd");
   const [secondCurrencyInString, setSecondCurrencyInString] =
     useState<string>("دلار آمریکا");
-  const [amount, setAmount] = useState<string>("0");
+  const [amount, setAmount] = useState<string>('');
   const [moneyExchanged, setMoneyExchanged] = useState<number>(0);
   const [isShown, setIsShown] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -143,8 +143,8 @@ function App() {
           id="amount"
           type="number"
           name="amount"
+          placeholder='مقدار را وارد کنید'
           value={amount}
-          onClick={() => amount === "0" && setAmount("")}
           onChange={(e) => amountHandler(e)}
         />
 
