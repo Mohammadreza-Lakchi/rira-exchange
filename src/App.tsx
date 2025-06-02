@@ -177,8 +177,3 @@ function App() {
 }
 
 export default App;
-
-// console.log(`${amount} ${firstCurrency} برابر است با ${(firstValue * amount / secondValue).toFixed(1)} ${secondCurrency}`)
-// {String(moneyExchanged)} {secondCurrencyInString}
-
-// {moneyExchanged && <p> {`${amount} ${firstCurrencyInString} = ${moneyExchanged} ${secondCurrencyInString}`}</p>}
