@@ -87,11 +87,11 @@ function App() {
   }
 
   return (
-    <div className="flex items-center justify-center w-full h-screen">
+    <div className="flex items-center justify-center w-full h-screen bg-[url('https://wallpaperaccess.com/full/2847970.jpg')] bg-gray-500/80 bg-blend-multiply">
       <section className="flex flex-col items-start w-full max-w-[500px] border border-[hsla(0,0%,84%)] p-6 rounded-2xl bg-[#f5f5f5] gap-3 font-bold">
-        <h1 className="mx-auto font-bold text-2xl">مبدل ارز</h1>
+        <h1 className="mx-auto font-bold text-2xl">مبدل ارز ریرا</h1>
 
-        <label htmlFor="from">از: </label>
+        <label htmlFor="from" className="text-xl"> از : </label>
         <select
           className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 cursor-pointer"
           name="firstCurrency"
@@ -113,12 +113,12 @@ function App() {
         <button
           type="button"
           onClick={reverseHandler}
-          className="bg-gray-300 border p-2 rounded-xl -mb-4 rotate-90 font-bold text-2xl mx-auto cursor-pointer"
+          className="bg-gray-300 border p-2 rounded-xl -mb-6 rotate-90 text-3xl mx-auto cursor-pointer"
         >
           <CiRepeat />
         </button>
 
-        <label htmlFor="to">به: </label>
+        <label htmlFor="to" className="text-xl">به :</label>
         <select
           className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 cursor-pointer"
           name="secondCurrency"
@@ -137,7 +137,7 @@ function App() {
           <option value="aed">درهم امارات</option>
         </select>
 
-        <label htmlFor="amount">مقدار: </label>
+        <label htmlFor="amount" className="text-xl mt-3"> مقدار : </label>
         <input
           className="border border-[hsla(0,0%,84%)] w-full rounded-xl p-3 bg-white font-bold"
           id="amount"
@@ -157,7 +157,7 @@ function App() {
         </button>
 
         {isShown && (
-          <div className="w-full rounded-xl bg-white flex justify-center items-center border border-[hsla(0,0%,84%)] py-5 mt-4">
+          <div className="w-full text-lg rounded-xl bg-white flex justify-center items-center border border-[hsla(0,0%,84%)] py-5 mt-4">
             {moneyExchanged < 0 ? (
               <p>مشکلی وجود دارد لطفا دوباره تلاش کنید . از فیلترشکن استفاده کنید</p>
             ) : (
