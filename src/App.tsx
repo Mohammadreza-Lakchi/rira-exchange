@@ -93,7 +93,7 @@ function App() {
 
         <label htmlFor="from">از: </label>
         <select
-          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3"
+          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 cursor-pointer"
           name="firstCurrency"
           value={firstCurrency}
           onChange={(e) => firstCurrencyHandler(e)}
@@ -113,14 +113,14 @@ function App() {
         <button
           type="button"
           onClick={reverseHandler}
-          className="bg-gray-300 border p-2 rounded-xl -mb-4 rotate-90 font-bold text-2xl mx-auto"
+          className="bg-gray-300 border p-2 rounded-xl -mb-4 rotate-90 font-bold text-2xl mx-auto cursor-pointer"
         >
           <CiRepeat />
         </button>
 
         <label htmlFor="to">به: </label>
         <select
-          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3"
+          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 cursor-pointer"
           name="secondCurrency"
           value={secondCurrency}
           onChange={(e) => secondCurrencyHandler(e)}
@@ -149,7 +149,7 @@ function App() {
         />
 
         <button
-          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 mt-6"
+          className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 mt-6 cursor-pointer"
           disabled={Number(amount) <= 0 || isLoading}
           onClick={exchangeHandler}
         >
