@@ -10,6 +10,7 @@ function App() {
   const [secondCurrencyInString, setSecondCurrencyInString] =
     useState<string>("دلار آمریکا");
   const [amount, setAmount] = useState<string>('');
+  const [noAmount, setNoAmount] = useState<boolean>(false)
   const [moneyExchanged, setMoneyExchanged] = useState<number>(0);
   const [isShown, setIsShown] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -37,6 +38,7 @@ function App() {
   function amountHandler(e: React.ChangeEvent<HTMLInputElement>) {
     setAmount(e.target.value);
     setIsShown(false);
+    setNoAmount(false)
   }
 
   interface currency {
@@ -69,7 +71,11 @@ function App() {
     }
   }
 
-  async function exchangeHandler() {
+  async function exchangeHandler() {    
+    if(amount === '') {
+      setNoAmount(true);      
+      return;
+    }
     if (firstCurrency === secondCurrency) {
       setMoneyExchanged(Number(amount));
       setIsShown(true);
@@ -137,9 +143,9 @@ function App() {
           <option value="aed">درهم امارات</option>
         </select>
 
-        <label htmlFor="amount" className="text-xl mt-3"> مقدار : </label>
+        <label htmlFor="amount" className={`text-xl mt-3 ${noAmount && 'text-red-600'}`}> مقدار : </label>
         <input
-          className="border border-[hsla(0,0%,84%)] w-full rounded-xl p-3 bg-white font-bold"
+          className={`border border-[hsla(0,0%,84%)] w-full rounded-xl p-3 bg-white font-bold ${noAmount && 'placeholder:text-red-600'}`}
           id="amount"
           type="number"
           name="amount"
@@ -150,7 +156,7 @@ function App() {
 
         <button
           className="w-full rounded-xl bg-[#3e3e3e] text-white p-3 mt-6 cursor-pointer"
-          disabled={Number(amount) <= 0 || isLoading}
+          disabled={isLoading}
           onClick={exchangeHandler}
         >
           {isLoading ? <ClipLoader color="aqua"/> : 'تبدیل'}
